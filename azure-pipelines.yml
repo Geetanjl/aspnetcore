@@ -10,10 +10,9 @@ pool:
   vmImage: windows-latest
 
 steps:
-- task: UseDotNet@2
+- task: NuGetToolInstaller@1
   inputs:
-    packageType: 'sdk'
-    version: 8.0.100
+    versionSpec: 
 - task: DotNetCoreCLI@2
   displayName: '.net restore'
   inputs:
