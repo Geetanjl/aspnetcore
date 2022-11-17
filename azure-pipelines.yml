@@ -13,8 +13,7 @@ steps:
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
-    useGlobalJson: true
-    workingDirectory: 'aspnetcore/global.json'
+    version: '5.x'
 - task: DotNetCoreCLI@2
   displayName: '.net restore'
   inputs:
