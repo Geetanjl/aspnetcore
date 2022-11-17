@@ -14,7 +14,7 @@ steps:
   inputs:
     packageType: 'sdk'
     useGlobalJson: true
-    workingDirectory: 'aspnetcore'
+    workingDirectory: 'aspnetcore/global.json'
 - task: DotNetCoreCLI@2
   displayName: '.net restore'
   inputs:
