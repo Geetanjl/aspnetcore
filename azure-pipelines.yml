@@ -1,0 +1,33 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: windows-latest
+
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    useGlobalJson: true
+    workingDirectory: 'aspnetcore'
+- task: DotNetCoreCLI@2
+  displayName: '.net restore'
+  inputs:
+    command: 'restore'
+    projects: 'AspNetCore.sln'
+    feedsToUse: 'select'
+- task: DotNetCoreCLI@2
+  displayName: '.net build'
+  inputs:
+    command: 'build'
+    projects: 'AspNetCore.sln'
+- task: DotNetCoreCLI@2
+  displayName: '.net test'
+  inputs:
+    command: 'test'
+    projects: 'AspNetCore.sln'
