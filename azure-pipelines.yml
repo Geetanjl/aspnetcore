@@ -9,6 +9,9 @@ trigger:
 pool:
   vmImage: windows-latest
 steps:
+- task: NuGetToolInstaller@1
+  inputs:
+    versionSpec: '8.0.100'
 - task: NuGetCommand@2
   inputs:
     command: 'restore'
