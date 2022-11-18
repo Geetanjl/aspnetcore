@@ -9,11 +9,11 @@ trigger:
 pool:
   vmImage: windows-latest
 steps:
-- task: UseDotNet@2
+- task: NuGetCommand@2
   inputs:
-    packageType: 'sdk'
-    useGlobalJson: false
-    workingDirectory: 'aspnetcore\global.json'
+    command: 'restore'
+    restoreSolution: '**/*.sln'
+    feedsToUse: 'select'
 - task: DotNetCoreCLI@2
   displayName: '.net restore'
   inputs:
