@@ -8,8 +8,12 @@ trigger:
 
 pool:
   vmImage: windows-latest
-
 steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    useGlobalJson: true
+    workingDirectory: 'aspnetcore'
 - task: DotNetCoreCLI@2
   displayName: '.net restore'
   inputs:
